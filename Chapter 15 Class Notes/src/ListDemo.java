@@ -31,7 +31,67 @@ public class ListDemo
         iterator.next(); // T|NPS
 
         // The next method also returns the element that the iterator passes over.
-        String avenger = iterator.next();   
+        String avenger = iterator.next();// TN|PS 
         System.out.println(avenger); // Should print Natasha
+
+        /* The add method inserts an element at the iterator position */
+        // The iterator is then positioned after the lement that was added.
+
+        iterator.add("Clint"); // TNC|PS
+        iterator.add("Bruce"); // TNCB|PS
+        System.out.println(staff);
+
+        // The remove method can ONLY be called after calling next or previous
+        // iterator.remove();
+
+        iterator.next(); // TNCBP|S
+        iterator.remove(); // TNCB|S
+
+        System.out.println(staff);
+
+        // The set method updates the element returned by the last call to next or previous.
+        iterator.previous(); // TNC|BS
+        iterator.set("Thor"); // TNC|TS
+        System.out.println(staff);
+
+        // The hasNext method is used to determine is there is a next node after the iterator.
+        // It is often used in the condition of a while loop
+
+        iterator = staff.listIterator(); // |TNCTS
+        while (iterator.hasNext()) {
+            String n = iterator.next();
+            if (n.equals("Natasha")) { // TN|CTS
+                iterator.remove(); // T|CTS
+            }
+        } // TCTS|
+
+        // Enhanced for loops work with linked lists.
+        for (String n : staff) {
+            System.out.println(n+" ");
+        }
+        System.out.println();
+        
+        // ConcurrentModificationException
+        // CANNOT modify a linkedlist while using an iterator UNLESS you use the iterator
+        iterator = staff.listIterator(); // |TCTS
+        while (iterator.hasNext()) {
+            String n = iterator.next();
+            if (n.equals("Tony")) {
+                // staff.remove("Tony"); ConcurrentModificationException
+            }
+        }
+
+        for (String n: staff) {
+            if (n.equals("Tony")) {
+                // staff.add("T'Challa");
+            }
+        }
+        System.out.println(staff);
+
+
+
+
+
+
     }
 }
