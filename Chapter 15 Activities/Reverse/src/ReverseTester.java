@@ -17,5 +17,16 @@ public class ReverseTester
         ListUtil.reverse(employeeNames);
         System.out.println(employeeNames);
         System.out.println("Expected: [Tom, Romeo, Harry, Dick]");
+
+        LinkedList<String> test2 = new LinkedList<>();
+        test2.addLast("Dick");
+        test2.addLast("Harry");
+        test2.addLast("Romeo");
+        test2.addLast("Tom");
+        test2.addLast("Jonny");
+
+        ListUtil.reverse(test2);
+        System.out.println(test2);
+        System.out.println("Expected: [Jonny, Tom, Romeo, Harry, Dick]");
     }
 }
