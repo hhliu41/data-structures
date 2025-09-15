@@ -28,7 +28,18 @@ public class StringLengthMap2
 
                 // Update the map here
                 // Use the Java 8 merge() method
-                words.merge(len, word, (oldStr, newStr) -> oldStr+", "+newStr);
+                words.merge(len, word, (oldStr, newStr) -> {
+
+                    if (words.get(len).indexOf(word) == 0) {
+                        return oldStr+", "+newStr;
+                    }
+                    else {
+                        return oldStr;
+                    }
+                }
+                
+                    
+                );
 
 
             }

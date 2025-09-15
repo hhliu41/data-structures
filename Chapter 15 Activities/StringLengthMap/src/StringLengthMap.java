@@ -33,7 +33,8 @@ public class StringLengthMap
                     s = word;
                 }
                 else {
-                    s = s + ", " + word;
+                    if (s.indexOf(word) == -1)
+                        s = s + ", " + word;
                 }
                 words.put(len, s);
                 
