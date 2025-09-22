@@ -17,10 +17,11 @@ public class HTMLChecker
 {
     public static void main(String[] args)
     {
-        String filename = "src/TagSample1.html";
+        String filename = "Chapter 15 Activities/HTMLChecker/src/TagSample3.html";
 
         try (Scanner in = new Scanner(new File(filename)))
         {
+            boolean good = true;
             // Your code goes here
             Stack<String> stack = new Stack<>();
             while (in.hasNext()) {
@@ -29,10 +30,14 @@ public class HTMLChecker
                     stack.push(tag);
                 }
                 else {
-                    stack.push(tag);
+                    if (!stack.pop().equals("<"+tag.substring(2))){
+                        good = false;
+                    }
+
                 }
 
             }
+            System.out.println("Is your formatting correct? " + good);
 
 
         } catch (FileNotFoundException e)
