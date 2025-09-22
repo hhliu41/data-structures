@@ -22,7 +22,17 @@ public class HTMLChecker
         try (Scanner in = new Scanner(new File(filename)))
         {
             // Your code goes here
-            . . .
+            Stack<String> stack = new Stack<>();
+            while (in.hasNext()) {
+                String tag = in.next();
+                if (!tag.substring(0,2).equals("</")) {
+                    stack.push(tag);
+                }
+                else {
+                    stack.push(tag);
+                }
+
+            }
 
 
         } catch (FileNotFoundException e)
