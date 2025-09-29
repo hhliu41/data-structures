@@ -87,6 +87,79 @@ public class LinkedList
         return allElements + "]";
     }
 
+    /**
+        Checks if this linked list contains the given object.
+        @param obj The object to be checked for.
+        @return If the object exists in the list.
+    
+    public boolean contains(Object obj)
+    {
+        Node currentNode = this.first;
+        
+        while (currentNode!=null) {
+            if (currentNode.data.equals(obj)) {
+                return true;
+            }   
+            currentNode = currentNode.next;
+        }
+        return false;
+    }
+    **/
+
+    /**
+        Checks if this linked list contains the given object.
+        @param obj The object to be checked for.
+        @return If the object exists in the list.
+    */
+    public boolean contains(Object obj)
+    {
+        return contains(this.first, obj);
+    }
+
+    /**
+        Checks if the given node or any in its following nodes contains the given object.
+        @param obj The object to be checked for.
+        @return If the object exists in the node or its following nodes.
+    */
+    public static boolean contains(Node start, Object obj)
+    {
+        if (start.equals(obj)){
+            return true;
+        }
+        return contains(start.next, obj);
+    }
+
+    /**
+        Computes the size of the linked list.
+        @return the number of elements in the list
+    
+    public int size()
+    {
+        int count = 0;
+        Node currentNode = this.first;
+        while (currentNode!=null) {
+            count++;
+            currentNode = currentNode.next;
+        }
+        return count;
+    }*/
+
+    /**
+        Computes the size of the linked list.
+        @return the number of elements in the list
+    */
+    public int size()
+    {
+        return size(this.first);
+    }
+
+    private static int size(Node start) 
+    {
+        if (start==null){
+            return 0;
+        }
+        return 1+size(start.next);
+    }
 
 
 

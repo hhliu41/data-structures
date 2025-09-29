@@ -41,7 +41,7 @@ public class LinkedList
     */
     public boolean contains(Object obj)
     {
-        // ...
+        return contains(this.first, obj);
     }
 
     /**
@@ -51,7 +51,10 @@ public class LinkedList
     */
     public static boolean contains(Node start, Object obj)
     {
-        // ...
+        if (start.equals(obj)){
+            return true;
+        }
+        return contains(start.next, obj);
     }
 
     /**
