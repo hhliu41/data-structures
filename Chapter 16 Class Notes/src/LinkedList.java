@@ -103,8 +103,8 @@ public class LinkedList
             currentNode = currentNode.next;
         }
         return false;
-    }
-    **/
+    }*/
+    
 
     /**
         Checks if this linked list contains the given object.
@@ -123,7 +123,10 @@ public class LinkedList
     */
     public static boolean contains(Node start, Object obj)
     {
-        if (start.equals(obj)){
+        if (start == null) {
+            return false;
+        }
+        if (start.data.equals(obj)){
             return true;
         }
         return contains(start.next, obj);
