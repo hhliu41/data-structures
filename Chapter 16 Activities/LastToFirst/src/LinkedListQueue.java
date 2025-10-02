@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 /**
     Add a method lastToFirst to this implementation of a queue.
     The method moves the element at the tail of the queue
@@ -22,11 +24,20 @@ public class LinkedListQueue
     */
     public void lastToFirst()
     {
-        . . .
-
-
-
-
+        if (this.head == null) {
+            throw new NoSuchElementException();
+        }
+        if (this.head == this.tail) {
+            return;
+        }
+        Node prevTail = head;
+        while (prevTail.next != this.tail) {
+            prevTail = prevTail.next;
+        }
+        this.tail.next = this.head;
+        prevTail.next = null;
+        this.head = this.tail;
+        this.tail = prevTail;
 
     }
 
