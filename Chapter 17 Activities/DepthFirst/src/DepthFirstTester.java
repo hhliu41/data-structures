@@ -32,5 +32,7 @@ public class DepthFirstTester
         System.out.println();
         System.out.println("Expected: Anne Peter Sonia Mike Jane Sam Zara");
 
+        t1.postOrder(visitor);
+
     }
 }
